@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ramadan Timer By Yavuz</title>
+    <style media="screen">
+    body{
+      margin: 0;
+      padding: 0;
+    }
+
+    #stripes{
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    transform-origin: 0;
+    transform: skewY(-12deg);
+    background: -webkit-linear-gradient(300deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+    background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+
+    }
+
+    #stripes, #stripes span{
+      position: absolute;
+    }
+
+    #stripes span{
+      height: 40px;
+    }
+
+    #stripes :nth-child(1){
+      width: 50%;
+      left: 50%;
+      top:40px;
+      background:#4c29ff;
+    }
+
+    #stripes :nth-child(2){
+      width: 14%;
+      right: 0;
+      bottom:40px;
+      background: #2be7ff;
+    }
+
+    #stripes :nth-child(3){
+      width: 25%;
+      bottom: 0;
+      right: 0;
+      background: #a1ffc8;
+    }
+
+    @media (min-width:670px){
+      #stripes span{
+        height:150px;
+      }
+      #stripes :nth-child(1){
+        top: 0;
+      }
+      #stripes :nth-child(2){
+        width: 16.66667%;
+        top: 300px;
+        bottom: auto;
+        background: #0dcfff;
+      }
+      #stripes :nth-child(3){
+        width: 33.33333%;
+        right: auto;
+        background: #11bdff;
+      }
+    }
+
+    @media (min-width: 880px){
+      #stripes span{
+        height: 190px;
+      }
+
+      #stripes :nth-child(1){
+        width: 33.33333%;
+        left: -16.66666%;
+        background: #53f;
+      }
+
+      #stripes :nth-child(2){
+        width: 33.33333%;
+        top: 0;
+        left: 16.66666%;
+        right: auto;
+        background: #4553ff;
+      }
+
+      #stripes :nth-child(3){
+        width: 33.33333%;
+        left: 49.99999%;
+        bottom: auto;
+        background: #4f40ff;
+      }
+
+      #stripes :nth-child(4){
+        width: 33.33333%;
+        top: 380px;
+        right: -16.66666%;
+        background: #25ddf5;
+      }
+
+      #stripes :nth-child(5){
+        width: 33.33333%;
+        bottom: 0;
+        background: #1fa2ff;
+      }
+    }
+    p {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 150px;
+  position: absolute;
+  z-index: 200;
+  width: 1500px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
+}
+    </style>
+  </head>
+  <body>
+    <p id="demo"></p>
+    <div id="stripes">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("April 20, 2021 19:48:25").getTime();
+  
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+  
+    // Get today's date and time
+    var now = new Date().getTime();
+  
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+  
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+  
+    // If the count down is over, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+  </script>
+  </body>
+</html>
